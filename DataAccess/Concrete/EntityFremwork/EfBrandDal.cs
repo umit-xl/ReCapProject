@@ -11,14 +11,19 @@ namespace DataAccess.Concrete.EntityFremwork
 {
     public class EfBrandDal : IBrandDal
     {
+
+        List<Brand> brand = new List<Brand>();
+
+
         public void Add(Brand entity)
         {
-            throw new NotImplementedException();
+            brand.Add(entity);
+            
         }
 
         public void Delete(Brand entity)
         {
-            throw new NotImplementedException();
+            brand.Remove(entity);
         }
 
         public Brand Get(Expression<Func<Brand, bool>> filter)

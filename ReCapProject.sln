@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Businnes", "Businnes\Businnes.csproj", "{CE4745B0-023A-4216-A428-C325BDD7B908}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReCapConsole", "ReCapConsole\ReCapConsole.csproj", "{F6EFAA32-37BA-4C3F-9360-336FE2F32A26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReCapConsole", "ReCapConsole\ReCapConsole.csproj", "{F6EFAA32-37BA-4C3F-9360-336FE2F32A26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{71D3364A-A1BA-4A2B-A52A-160BBA320DE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F6EFAA32-37BA-4C3F-9360-336FE2F32A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6EFAA32-37BA-4C3F-9360-336FE2F32A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6EFAA32-37BA-4C3F-9360-336FE2F32A26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71D3364A-A1BA-4A2B-A52A-160BBA320DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71D3364A-A1BA-4A2B-A52A-160BBA320DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71D3364A-A1BA-4A2B-A52A-160BBA320DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71D3364A-A1BA-4A2B-A52A-160BBA320DE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

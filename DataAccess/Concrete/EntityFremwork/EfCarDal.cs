@@ -18,12 +18,14 @@ namespace DataAccess.Concrete.EntityFremwork
             if (car.CarName.Length >= 2 && car.DailyPrice > 0)
             {
                 _cars.Add(car);
+
             }
 
             else
             {
                 Console.WriteLine("Araba ismi 2 harften uzun ve Araba fiyatı 0 Tl'den yüksek olmalıdır.");
             }
+
         }
 
         public void Delete(Car car)
