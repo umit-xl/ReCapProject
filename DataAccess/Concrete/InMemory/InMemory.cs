@@ -28,6 +28,11 @@ namespace DataAccess.Concrete.InMemory
             if (car.CarName.Length >= 2 && car.DailyPrice > 0)
             {
                 _cars.Add(car);
+
+                foreach (var item in _cars)
+                {
+                    Console.WriteLine(item.CarId);
+                }
             }
 
             else
@@ -41,6 +46,11 @@ namespace DataAccess.Concrete.InMemory
             Car carDelete = _cars.SingleOrDefault(c => c.CarId == car.CarId);
 
             _cars.Remove(carDelete);
+
+            foreach (var item in _cars)
+            {
+                Console.WriteLine(item.CarId);
+            }
 
         }
 
@@ -64,7 +74,7 @@ namespace DataAccess.Concrete.InMemory
 
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            return _cars.ToList();
         }
 
         public Car Get(Expression<Func<Car, bool>> filter)

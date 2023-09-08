@@ -1,5 +1,8 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFremwork;
+using DataAccess.Abstract;
 using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFremwork
 {
-    public class EfCarDal : ICarDal
+    public class EfCarDal : IEntityRepositoryBase<Car, DbContext> , ICarDal
     {
         List<Car> _cars;
         public void Add(Car car)
@@ -30,7 +33,14 @@ namespace DataAccess.Concrete.EntityFremwork
 
         public void Delete(Car car)
         {
-            throw new NotImplementedException();
+            Car carDelete = _cars.SingleOrDefault(c => c.CarId == car.CarId);
+
+            _cars.Remove(carDelete);
+
+            foreach (var item in _cars)
+            {
+                Console.WriteLine(item.CarId);
+            }
         }
 
         public Car Get(Expression<Func<Car, bool>> filter)
@@ -45,12 +55,18 @@ namespace DataAccess.Concrete.EntityFremwork
 
         public List<Car> GetByld(int CarId)
         {
-            throw new NotImplementedException();
+            return _cars.Where(c => c.CarId == CarId).ToList();
         }
 
         public void Update(Car car)
         {
-            throw new NotImplementedException();
+            Car carUpdate = _cars.SingleOrDefault(c => c.CarId == car.CarId);
+
+            carUpdate.CarId = car.CarId;
+            carUpdate.BrandId = car.BrandId;
+            carUpdate.ColorId = car.ColorId;
+            carUpdate.DailyPrice = car.DailyPrice;
+            carUpdate.Description = car.Description;
         }
     }
 }

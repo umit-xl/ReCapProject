@@ -1,6 +1,7 @@
 ﻿using Businnes.Abstract;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
+using DataAccess.Concrete.EntityFremwork;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -21,12 +22,13 @@ namespace Businnes.Concrete
 
         public void Add(Car car)
         {
-            _carDal.Add(car);
+
+            Console.WriteLine("Araba eklendi");
         }
 
         public void Delete(Car car)
         {
-            _carDal.Delete(car);
+            Console.WriteLine("Araba silindi");
         }
 
         public List<Car> GetAll()
