@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using Businnes.Abstract;
 using Businnes.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
@@ -20,30 +21,44 @@ internal class Program
         //InMemory inMemory = new InMemory();
 
         Car car1 = new Car();
-        //Car car2 = new Car();
+        Car car2 = new Car();
         //Car car3 = new Car();
 
-        car1.BrandId = 2;
+        car1.BrandId = 3;
         car1.ColorId = 3;
         car1.CarName = "Ford";
         car1.ModelYear = 2000;
         car1.DailyPrice = 35000;
         car1.Description = "Ford Focus";
 
+        car2.BrandId = 6;
+        car2.ColorId = 7;
+        car2.CarName = "Ford";
+        car2.ModelYear = 2000;
+        car2.DailyPrice = 35000;
+        car2.Description = "Ford Focus";
+
+
+
+
         CarManager carManager = new CarManager(new EfCarDal());
 
         //carManager.Add(car1);
 
 
-        List<Car> cars = new();
-        cars = carManager.GetAll();
+        //List<Car> cars = new();
+        //cars = carManager.GetAll();
 
-        foreach (var item in cars)
-        {
-            Console.WriteLine(item.CarName);
-        }
+        //foreach (var item in cars)
+        //{
+        //    Console.WriteLine(item.CarName);
+        //}
 
-        Console.ReadLine();
+
+        carManager.Delete(car2);
+
+
+
 
 
 
