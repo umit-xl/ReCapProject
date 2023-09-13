@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace Businnes.Abstract
         void Delete(Car car);
         void Update(Car car);
 
-        List<Car> GetAll();
+        List<Car> GetAll(Expression<Func<Car, bool>> filter = null);
         List<Car> GetCarsByBrandId(int brandId);
         List<Car> GetCarsByColorId(int colorId);
     }

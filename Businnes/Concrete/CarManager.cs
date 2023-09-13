@@ -6,6 +6,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,22 +19,22 @@ namespace Businnes.Concrete
         public CarManager(ICarDal carDal) 
         {
             _carDal = carDal;
+
         }
 
         public void Add(Car car)
         {
-
-            Console.WriteLine("Araba eklendi");
+            _carDal.Add(car);
         }
 
         public void Delete(Car car)
         {
-            Console.WriteLine("Araba silindi");
+            _carDal.Delete(car);
         }
 
-        public List<Car> GetAll()
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
-            return _carDal.GetAll();
+            return _carDal.GetAll(filter);
         }
 
         public List<Car> GetCarsByBrandId(int brandId)

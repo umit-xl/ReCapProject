@@ -18,8 +18,8 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car>
             {
-                new Car {CarId = 1, BrandId = 1, ColorId = 2, DailyPrice = 300000, ModelYear = 2018, Description = "Otomatik vites"},
-                new Car {CarId = 2, BrandId = 4, ColorId = 1, DailyPrice = 200000, ModelYear = 2003, Description = "Manuel vites"}
+                new Car {Id = 1, BrandId = 1, ColorId = 2, DailyPrice = 300000, ModelYear = 2018, Description = "Otomatik vites"},
+                new Car {Id = 2, BrandId = 4, ColorId = 1, DailyPrice = 200000, ModelYear = 2003, Description = "Manuel vites"}
             };
         }
 
@@ -31,7 +31,7 @@ namespace DataAccess.Concrete.InMemory
 
                 foreach (var item in _cars)
                 {
-                    Console.WriteLine(item.CarId);
+                    Console.WriteLine(item.Id);
                 }
             }
 
@@ -43,22 +43,22 @@ namespace DataAccess.Concrete.InMemory
 
         public void Delete(Car car)
         {
-            Car carDelete = _cars.SingleOrDefault(c => c.CarId == car.CarId);
+            Car carDelete = _cars.SingleOrDefault(c => c.Id == car.Id);
 
             _cars.Remove(carDelete);
 
             foreach (var item in _cars)
             {
-                Console.WriteLine(item.CarId);
+                Console.WriteLine(item.Id);
             }
 
         }
 
         public void Update(Car car)
         {
-            Car carUpdate = _cars.SingleOrDefault(c => c.CarId == car.CarId);
+            Car carUpdate = _cars.SingleOrDefault(c => c.Id == car.Id);
 
-            carUpdate.CarId = car.CarId;
+            carUpdate.Id = car.Id;
             carUpdate.BrandId = car.BrandId;
             carUpdate.ColorId = car.ColorId;
             carUpdate.DailyPrice = car.DailyPrice;
@@ -69,7 +69,7 @@ namespace DataAccess.Concrete.InMemory
 
         public List<Car> GetByld(int CarId)
         {
-            return _cars.Where(c => c.CarId == CarId).ToList();
+            return _cars.Where(c => c.Id == CarId).ToList();
         }
 
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
@@ -78,6 +78,16 @@ namespace DataAccess.Concrete.InMemory
         }
 
         public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetAll(Func<Car, bool> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Car Get(Func<Car, bool> filter)
         {
             throw new NotImplementedException();
         }
